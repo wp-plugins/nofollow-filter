@@ -5,7 +5,7 @@ Plugin URI: http://www.agarassino.com/wordpress-plugin-nofollow-filter/
 Description: Nofollow Filter is a Wordpress plugin that automatically adds “nofollow” attribute to certain links on your posts.
 Author: Agustin Garassino
 Version: 0.1
-Author URI: http://www.agarassino.com
+Author URI: http://www.agarassino.com.com/
 Installation Instructions: PLEASE read the readme.txt that came with this plugin for usage instructions.
 */
 
@@ -216,6 +216,8 @@ if(count($nffSites) > 0) {
     }
     $remove_html = preg_replace('/^<!DOCTYPE.+?>/', '', str_replace( array('<html>', '</html>', '<body>', '</body>'), array('', '', '', ''), $doc->saveHTML()));
     return $remove_html;
+} else {
+ return $content;
 }
 }
 add_filter('the_content', 'nofollow_filter');
