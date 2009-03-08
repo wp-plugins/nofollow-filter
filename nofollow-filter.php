@@ -201,7 +201,8 @@ $nffSites = $wpdb->get_results($nffSql);
 if(count($nffSites) > 0) {
 
     $doc = new DOMDocument();
-    $doc->loadHTML($content);
+    $modContent = mb_convert_encoding($content, 'HTML-ENTITIES', "UTF-8");
+    @$doc->loadHTML($modContent);
     $allLinks = $doc->getElementsByTagName('a');
     foreach($nffSites as $nffSite) {
 
